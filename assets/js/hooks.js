@@ -34,11 +34,11 @@ Hooks.QuillEditor = {
 			}
 		});
 
-		// Optional: Push content change events
+		const hiddenInput = document.getElementById('hidden-content');
+
+		this.quill.root.innerHTML = hiddenInput.value;
 		this.quill.on('text-change', () => {
-			let content = this.quill.root.innerHTML;
-			var hiddenInput = document.getElementById('hidden-content');
-			hiddenInput.value = content;
+			hiddenInput.value = this.quill.root.innerHTML;
 		});
 	}
 };
